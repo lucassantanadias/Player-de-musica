@@ -1,0 +1,190 @@
+/*seletor universal para resetar o css*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #363636;
+}
+
+body * {
+  font-family: "Inter", sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+
+/*tudo que estiver dentro da div app vai receber os estilos*/
+
+
+#app {
+  display: grid;
+  /*ao invés de colocar a largura como fit-content no player-1, eu posso colocar da maneira abaixo*/
+  grid-template-columns: max-content;
+  grid-template-areas:
+    "A B"
+    "A C";
+  /* "A" será uma área na vertical, "B" uma área na horizontal, "C" uma área na horizontal abaixo do B*/
+  gap: 32px;
+  place-content: center; /*disponivel no display grid para centralizar. (colocar conteúdo)
+  */
+  height: 100vw; /*para deixar conteúdo no meio da página*/
+}
+
+/*definindo a área de cada DIV*/
+/*player-1*/
+#player-1 {
+ 
+  grid-area: A;
+  /*50px preenchimento em cima e embaixo e 38px preenchimento dos lados*/
+  padding:50px 0px;
+width: fit-content; /*para a caixa tentar ficar no tamanho do conteúdo.*/
+}
+
+#player-1 .wrapper {
+  width: 190px;
+}
+
+#player-1 img {
+  width: 190px;
+  height: 190px;
+  /*object-fit (encaixe o objeto) cover(cobrindo toda a caixa imagem)*/
+  /*sem a propriedade object fit: cover a imagem ficaria esticada e não estria nítida*/
+  object-fit: cover;
+}
+
+#player-1 .info {
+  margin-top: 28px; /*espaço entre a imagem e o texto*/
+}
+
+/*player-2*/
+#player-2 {
+  grid-area: B;
+  height: 260px;
+  padding-top: 50px;
+}
+
+#player-2 img {
+  width: 84px;
+  height: 84px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+#player-2 .wrapper {
+  display: flex;
+  align-items: center;
+  gap: 29px;
+  width: 300px;
+  height: 85px;
+}
+
+/*adiciona os controles copiando a imagem em svg*/
+#player-2 .controls {
+  justify-content: center;
+  gap: 50px;
+}
+
+/*adicionando a barrinha transparente*/
+#player-2 .track::before {
+  width: 300px;
+}
+
+/*adicionando a barrinha branca que ficará por cima.*/
+#player-2 .track::after {
+  width: 260px;
+}
+
+/*player-3*/
+#player-3 {
+  grid-area: C;
+}
+
+#player-3 img {
+  width: 84px;
+  height: 84px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+#player-3 .wrapper {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+#player-3 .controls {
+  justify-content: center;
+  gap: 50px;
+}
+
+.player {
+  background-color: #1f1f1f;
+  padding: 29px ; /*aplico o padding para o player 2 / player 3. porém ele não aplica no player 1 por ele já está com o padding definido e ele é um id que tem o peso maior que uma classe.*/
+  border-radius: 10px;
+
+}
+
+.info {
+  display: grid;
+  gap: 9.6px; /*para dar espaço entre um texto e outro, mas preciso deixar o display grid*/
+}
+
+.info h1 {
+  font-size: 24px;
+  /*poderia ter colocado a cor no info para não precisar colocar no h1 e p*/
+  color: #e1e1e6;
+}
+
+.info p {
+  font-size: 19px;
+  color: #e1e1e6;
+  opacity: 67%; /*deixa a cor como um transparente leve*/
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between; /*espaço entre*/
+  margin-top: 28px;
+
+  /*posso colocar assim ou, de maneira mais fácil, colocar:justify-content:space-between*/
+  /*justify-content: center;
+  gap: 50px;*/
+}
+
+/*criando a barrinha de tempo da música sem precisar colocar a img svg no html(que é muito mais fácil)*/
+.track {
+  margin-top: 29px;
+  position: relative; /*permite que com o position absolute o elemento fique sob outro.*/
+}
+/*pseudo elements, resposáveis por criar elementos sem precisar usar html*/
+.track::before {
+  position: absolute;
+  /*toda caixa (elemento) para aparecer, precisa de:*/
+  display: block; /*um display*/
+  content: ""; /*um conteúdo, mesmo que vazio*/
+  width: 178px; /*uma largura*/
+  height: 6px; /*uma altura*/
+  background: #d9d9d9;
+  opacity: 0.3;
+  border-radius: 10px;
+}
+
+.track::after {
+  display: block;
+  content: "";
+  width: 155px;
+  height: 6px;
+  background: #d9d9d9;
+  opacity: 0.8;
+  border-radius: 10px;
+}
+
+.time {
+  display: flex;
+  justify-content: space-between;
+  color: #c4c4cc;
+  font-size: 14px;
+  opacity: 70%;
+  margin-top: 9.6px;
+}
