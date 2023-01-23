@@ -79,7 +79,7 @@ width: fit-content; /*para a caixa tentar ficar no tamanho do conteúdo.*/
   height: 85px;
 }
 
-/*adiciona os controles copiando a imagem em svg*/
+/*adiciona os controles copiando a imagem em svg.*/
 #player-2 .controls {
   justify-content: center;
   gap: 50px;
