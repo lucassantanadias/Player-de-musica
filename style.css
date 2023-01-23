@@ -16,7 +16,6 @@ body * {
 
 /*tudo que estiver dentro da div app vai receber os estilos*/
 
-
 #app {
   display: grid;
   /*ao invés de colocar a largura como fit-content no player-1, eu posso colocar da maneira abaixo*/
@@ -34,11 +33,10 @@ body * {
 /*definindo a área de cada DIV*/
 /*player-1*/
 #player-1 {
- 
   grid-area: A;
   /*50px preenchimento em cima e embaixo e 38px preenchimento dos lados*/
-  padding:50px 0px;
-width: fit-content; /*para a caixa tentar ficar no tamanho do conteúdo.*/
+  padding: 50px 0px;
+  width: fit-content; /*para a caixa tentar ficar no tamanho do conteúdo.*/
 }
 
 #player-1 .wrapper {
@@ -120,9 +118,8 @@ width: fit-content; /*para a caixa tentar ficar no tamanho do conteúdo.*/
 
 .player {
   background-color: #1f1f1f;
-  padding: 29px ; /*aplico o padding para o player 2 / player 3. porém ele não aplica no player 1 por ele já está com o padding definido e ele é um id que tem o peso maior que uma classe.*/
+  padding: 29px; /*aplico o padding para o player 2 / player 3. porém ele não aplica no player 1 por ele já está com o padding definido e ele é um id que tem o peso maior que uma classe.*/
   border-radius: 10px;
-
 }
 
 .info {
